@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #cccccc !important;
+}
+
+footer {
+    text-align: center;
+    padding: 55px 0 0 0;
+    font-weight: bold;
+    height: 125px;
+}
+div {
+    display: block;
+}
+
+input {
+    width: 100%;
+}
+
+
+th {
+text-align: center !important;
+}
+
+a {
+    color: #cccccc !important;
+}
+
+#trainTableText {
+    text-align: center;
+}
+
+.panel {
+    border-color: #5d0e00 !important;
+}

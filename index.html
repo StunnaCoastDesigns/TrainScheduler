@@ -8,7 +8,7 @@
     <title>Train Scheduler</title>
     <!-- CSS Reset -->
     <link rel="stylesheet" type="text/css" href="assets/reset.css">
-    <!-- Bootstrap-->
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- CSS Stylesheet-->
@@ -18,22 +18,23 @@
 
 <body>
 
-    <div class="container">
+    <div class="container bodyContent">
         <div class="jumbotron">
             <h1 class="text-center">Train Scheduler</h1>
             <h3 class="text-center">We're here to help</h3>
         </div>
 
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="row pageRow">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 scheduleTable">
 
                 <!-- Current Train Are Here -->
-                <div class="panel   panel-dark">
+                <div class="panel   panel-primary">
                     <div class="panel-primary">
                         <h3 class="panel title"><strong>Current Trains</strong></h3>
                     </div>
+
                     <div class="panel-body">
-                        <table class="table table-hover" id="train-table">
+                        <table class="table table-hover table-responsiveness" id="trainTable">
                             <thead>
                                 <tr>
                                     <th>Train Name</th>
@@ -42,54 +43,75 @@
                                     <th>Frequency</th>
                                 </tr>
                             </thead>
-                            <tbody>
-
+                            <tbody id="trainTableText">
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <!-- New Trains Are Here -->
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><strong>Add A New Train</strong></h3>
+
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <!-- New Trains Are Here -->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><strong>Add A New Train</strong></h3>
+                        </div>
+                        <div class="panel-body">
+                            <!-- Train Entry Form -->
+                            <form>
+                                <div class="form-group">
+                                    <label for="trainName">Train Name</label>
+                                    <input type="text" class="formControl" id="NameInput" placeholder="Enter a Train">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="destinationForm">Destination</label>
+                                    <input type="text" class="formControl" id="destinationInput"
+                                        placeholder="City, State">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="firstTrain">First Train Time(HH:mm - military time)</label>
+                                    <input type="text" class="formControl" id="timeInput" placeholder="1900"
+                                        onkeyup="if(this.value > 2400){this.value= ' ';alert('Enter a valid time between 0000 and 2400');}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">Frequency (min)</label>
+                                    <input type="text" class="formControl" id="frequencyInput" placeholder="90 minutes">
+                                </div>
+                            </form>
+
+                            <button class="btn btn-primary submitInput">Submit</button>
+
+                            <button class="btn btn-secondary resetInput">Reset</button>
+                        </div>
+                        </div>
+
                     </div>
-
-                    <!-- Train Entry Form -->
-                    <form>
-                        <div class="form-group">
-                            <label for="">Train Name</label>
-                            <input type="text" class="form-control" id="trainNameInput">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Destination</label>
-                            <input type="text" class="form-control" id="destinationInput">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">First Train Time(HH:mm - military time)</label>
-                            <input type="text" class="form-control" id="trainTimeInput">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Frequency (min)</label>
-                            <input type="text" class="form-control" id="frequencyInput">
-
-                            <button type="submit" class="btn btn-primary" id="addTrainBtn">Submit</button>
-                        </div>
-                    </form>
                 </div>
-            </div>
+            
         </div>
     </div>
 
+    <!--  Footer Div -->
+    <footer>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myFooter">
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-         <!--  FireBase Script Core -->
-    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!--  FireBase Script Core -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
     <!--  Firebase Script Products -->
-    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-database.js"></script>
     <!--  Moment.js  cdn Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <!-- JavaScript-->
