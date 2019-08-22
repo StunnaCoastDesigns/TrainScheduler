@@ -15,6 +15,21 @@ $(document).ready(function () {
 
     var database = firebase.database();
 
+    // var trainName;
+    // var destination;
+    // var trainTime;
+    // var frequency;
+    // var arrivalTime,
+    //     var minutesAway;
+
+    // console.log(trainName);
+    // (trainTime);
+    // (destination);
+    // (frequency);
+    // (arrivalTime);
+    // (minutesAway);
+
+
     // storing information from submit button
     $(".submitInput").on("click", function () {
         console.log("function is working");
@@ -22,17 +37,21 @@ $(document).ready(function () {
         // Variables
         // Users input from tables are here
         var nameInput = $("#nameInput").val().trim();
+        var numberInput = $("#numberInput").val().trim();
         var destinationInput = $("#destinationInput").val().trim();
         var timeInput = $("#timeInput").val().trim();
         var frequencyInput = $("#frequencyInput").val().trim();
 
         console.log(nameInput);
+        console.log(numberInput);
         console.log(destinationInput);
         console.log(timeInput);
         console.log(frequencyInput);
 
+
         // input validation
         if (nameInput != "" &&
+            numberInput != "" &&
             destinationInput != "" &&
             timeInput.length === 4 &&
             frequencyInput != "") {
@@ -41,6 +60,7 @@ $(document).ready(function () {
             //    collected input above and port into firebase database
             database.ref().push({
                 name: nameInput,
+                number: numberInput,
                 destination: destinationInput,
                 time: timeInput,
                 frequency: frequencyInput,
@@ -58,6 +78,7 @@ $(document).ready(function () {
     });
     database.ref().on("child_added", function (childSnapshot) {
         var name = childSnapshot.val().name;
+        var number = childSnapshot.val().number;
         var destination = childSnapshot.val().destination;
         var time = childSnapshot.val().time;
         var frequency = childSnapshot.val().frequency;
@@ -68,6 +89,7 @@ $(document).ready(function () {
 
         var frequency = parseInt(frequency);
         var currentTime = moment();
+
 
         console.log("Current time: " + moment().format("HHmm"));
 
@@ -101,12 +123,13 @@ $(document).ready(function () {
         var arrivalDisplay = moment(nextArrival).format("HHmm");
 
         //append data to table
-        $("#boardText").append(
+        $("#trainTableText").append(
             "<tr><td id='nameDisplay'>" + childSnapshot.val().name +
+            "<td id='numberDisplay'>" + childSnapshot.val().number + 
             "<td id='destinationDisplay'>" + childSnapshot.val().destination +
             "<td id='frequencyDisplay'>" + childSnapshot.val().frequency +
             "<td id='arrivalDisplay'>" + childSnapshot.val().arrivalDisplay +
-            "<td id='awayDisplay'>" + timeAway + " minutes until arrival" + "</td></tr>");
+            "<td id='awayDisplay'>" + timeAway + "minutes until arrival" + "</td></tr>");
 
         console.log(arrivalDisplay);
         console.log(timeAway);
@@ -114,7 +137,7 @@ $(document).ready(function () {
     });
 
     //reset button
-    $(".resetInput").on("click", function (event) {
+    $(".resetInput").on("click", function () {
         location.reload();
     });
 
