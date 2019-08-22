@@ -1,9 +1,15 @@
 * {
     box-sizing: border-box;
+    background-image: url(../images/trainimage1.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+
 }
 
 body {
     background-color: #cccccc !important;
+    color: wheat;
 }
 
 footer {
@@ -23,6 +29,7 @@ input {
 
 th {
 text-align: center !important;
+color: whitesmoke;
 }
 
 a {
@@ -31,10 +38,12 @@ a {
 
 #trainTableText {
     text-align: center;
+    color: whitesmoke;
 }
 
 .panel {
     border-color: #5d0e00 !important;
+    color: wheat;
 }
 
 /* Media Queries */

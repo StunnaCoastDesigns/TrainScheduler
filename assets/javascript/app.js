@@ -15,20 +15,6 @@ $(document).ready(function () {
 
     var database = firebase.database();
 
-    // var trainName;
-    // var destination;
-    // var trainTime;
-    // var frequency;
-    // var arrivalTime,
-    //     var minutesAway;
-
-    // console.log(trainName);
-    // (trainTime);
-    // (destination);
-    // (frequency);
-    // (arrivalTime);
-    // (minutesAway);
-
 
     // storing information from submit button
     $(".submitInput").on("click", function () {
