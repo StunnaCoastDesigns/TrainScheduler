@@ -125,11 +125,11 @@ $(document).ready(function () {
         //append data to table
         $("#trainTableText").append(
             "<tr><td id='nameDisplay'>" + childSnapshot.val().name +
-            "<td id='numberDisplay'>" + childSnapshot.val().number + 
+            "<td id='numberDisplay'>" + childSnapshot.val().number +
             "<td id='destinationDisplay'>" + childSnapshot.val().destination +
             "<td id='frequencyDisplay'>" + childSnapshot.val().frequency +
             "<td id='arrivalDisplay'>" + childSnapshot.val().arrivalDisplay +
-            "<td id='awayDisplay'>" + timeAway + "minutes until arrival" + "</td></tr>");
+            "<td id='awayDisplay'>" + timeAway + " minutes until arrival" + "</td></tr>");
 
         console.log(arrivalDisplay);
         console.log(timeAway);
